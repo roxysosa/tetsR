@@ -1,0 +1,104 @@
+public class Main {
+    public static void main (String[]args){
+        final byte Percent = 100;
+        final byte MonthPerYear = 10;
+        Float principal;
+        Float AnnualInterestRate;
+        Byte years;
+
+        Scanner scanner = new Scanner(System.in);
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+
+        System.out.println("Principal ($1k- $1M): ");
+        while (true) {
+            // Float principal = Float.parseFloat(scanner.next());
+            principal = scanner.nextFloat();
+            if (!(1000< principal &&  principal< 1000000)){
+                System.out.println("Enter a number between 1,000 and 1,000,000: ");
+                continue;}
+            else
+                break;
+        }
+        System.out.println("Annual Interest Rate : ");
+        while(true){
+            //Float AnnualInterestRate =Float.parseFloat(scanner.next())/Percent;
+            float vAnnualInterestRate = scanner.nextFloat();
+            AnnualInterestRate = vAnnualInterestRate/Percent;
+            if (!(vAnnualInterestRate>1 && vAnnualInterestRate<30)){
+                System.out.println("Enter a value between 1 an 30 ");
+                continue;}
+            else
+                break;
+        }
+
+
+
+       System.out.println("Period (Years): ");
+       while(true){
+            //Float  PeriodYear = Float.parseFloat(scanner.next());
+           years = scanner.nextByte();
+           if (!(years>1 && years<30)){
+               System.out.println("Enter a value between 1 an 30 ");
+               continue;}
+           else
+               break;
+       }
+
+        int numberOfPayments = years * MonthPerYear;
+        double InterestRatePowToPeriod= Math.pow(AnnualInterestRate+1,numberOfPayments);
+        double InterestRatePowToPeriodLessOne = InterestRatePowToPeriod-1;
+        double MortgageFloat = principal*((InterestRatePowToPeriod*AnnualInterestRate)
+               / InterestRatePowToPeriodLessOne);
+       String Mortgage = currency.format(MortgageFloat);
+        System.out.println("Mortgage is: "+ Mortgage);
+
+
+
+      //final byte Percent = 100;
+        //        final byte MonthPerYear = 10;
+        //        Scanner scanner = new Scanner(System.in);
+        //        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        //
+        //        System.out.println("Principal: ");
+        //       // Float principal = Float.parseFloat(scanner.next());
+        //        Float principal = scanner.nextFloat();
+        //
+        //        System.out.println("Annual Interest Rate : ");
+        //        //Float AnnualInterestRate =Float.parseFloat(scanner.next())/Percent;
+        //        Float AnnualInterestRate = scanner.nextFloat()/Percent;
+        //
+        //        System.out.println("Period (Years): ");
+        //        //Float  PeriodYear = Float.parseFloat(scanner.next());
+        //        Byte years = scanner.nextByte();
+        //        int numberOfPayments = years * MonthPerYear;
+        //        double InterestRatePowToPeriod= Math.pow(AnnualInterestRate+1,numberOfPayments);
+        //        double InterestRatePowToPeriodLessOne = InterestRatePowToPeriod-1;
+        //        double MortgageFloat = principal*((InterestRatePowToPeriod*AnnualInterestRate)
+        //                / InterestRatePowToPeriodLessOne);
+        //        String Mortgage = currency.format(MortgageFloat);
+        //        System.out.println("Mortgage is: "+ Mortgage);
+
+
+    }
+}
+// Date now = new Date();
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Name: ");
+//        String name = scanner.nextLine().trim();
+//        System.out.println("You are "+name);
+//
+//        NumberFormat percent = NumberFormat.getPercentInstance();
+//        String result =percent.format(0.1);
+//        System.out.println(result);
+//        int []  numbers = {2,3,4,6,1};
+//        System.out.println(numbers.length);
+//        Arrays.sort(numbers);
+//        System.out.println(Arrays.toString(numbers));
+//        String message = "Hello";
+//        System.out.println(message.toUpperCase());
+//        System.out.println(message);
+//        //System.out.println(now );
+//        Point point1 = new Point(1,1);
+//        Point point2 = point1;
+//        point1.x = 2;
+//        System.out.println(point2);
